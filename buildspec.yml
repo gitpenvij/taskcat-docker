@@ -6,7 +6,7 @@ phases:
        - ls
        - env | grep AWS
        - docker run -v $(pwd):/mnt -e AWS_DEFAULT_REGION -e AWS_CONTAINER_CREDENTIALS_RELATIVE_URI --name taskcat taskcat/taskcat taskcat -c sample-project/ci/config.yml -v
-  artifacts:
-    files:
-      - 'taskcat_outputs/**/*'
-    name: taskcat_outputs-${CODEBUILD_SOURCE_VERSION}-$(date +%Y-%m-%d)
+artifacts:
+  files:
+    - 'taskcat_outputs/**/*'
+  name: taskcat_outputs-${CODEBUILD_SOURCE_VERSION}-$(date +%Y-%m-%d)
